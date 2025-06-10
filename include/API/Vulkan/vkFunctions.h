@@ -10,7 +10,6 @@ extern PFN_vkCreateInstance vkCreateInstance;
 
 // vulkan instance functions
 extern PFN_vkGetDeviceProcAddr vkGetDeviceProcAddr;
-extern PFN_vkDestroyDevice vkDestroyDevice;
 extern PFN_vkCreateDevice vkCreateDevice;
 extern PFN_vkGetPhysicalDeviceSurfaceSupportKHR vkGetPhysicalDeviceSurfaceSupportKHR;
 extern PFN_vkGetPhysicalDeviceQueueFamilyProperties vkGetPhysicalDeviceQueueFamilyProperties;
@@ -19,6 +18,7 @@ extern PFN_vkEnumeratePhysicalDevices vkEnumeratePhysicalDevices;
 extern PFN_vkDestroyInstance vkDestroyInstance;
 
 // vulkan device functions
+extern PFN_vkDestroyDevice vkDestroyDevice;
 #endif
 
 void LoadVulkanLoaderFunctions();

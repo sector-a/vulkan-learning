@@ -11,7 +11,6 @@ PFN_vkCreateInstance vkCreateInstance;
 
 // vulkan instance functions
 PFN_vkGetDeviceProcAddr vkGetDeviceProcAddr;
-PFN_vkDestroyDevice vkDestroyDevice;
 PFN_vkCreateDevice vkCreateDevice;
 PFN_vkGetPhysicalDeviceSurfaceSupportKHR vkGetPhysicalDeviceSurfaceSupportKHR;
 PFN_vkGetPhysicalDeviceQueueFamilyProperties vkGetPhysicalDeviceQueueFamilyProperties;
@@ -20,6 +19,7 @@ PFN_vkEnumeratePhysicalDevices vkEnumeratePhysicalDevices;
 PFN_vkDestroyInstance vkDestroyInstance;
 
 // vulkan device functions
+PFN_vkDestroyDevice vkDestroyDevice;
 #endif
 
 void LoadVulkanLoaderFunctions() {
@@ -36,7 +36,6 @@ void LoadVulkanLoaderFunctions() {
 void LoadVulkanInstanceFunctions(VkInstance instance) {
 	#ifdef VK_NO_PROTOTYPES
 	vkGetDeviceProcAddr = (PFN_vkGetDeviceProcAddr)vkGetInstanceProcAddr(instance, "vkGetDeviceProcAddr");
-	vkDestroyDevice = (PFN_vkDestroyDevice)vkGetInstanceProcAddr(instance, "vkDestroyDevice");
 	vkCreateDevice = (PFN_vkCreateDevice)vkGetInstanceProcAddr(instance, "vkCreateDevice");
 	vkGetPhysicalDeviceSurfaceSupportKHR = (PFN_vkGetPhysicalDeviceSurfaceSupportKHR)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceSurfaceSupportKHR");
 	vkGetPhysicalDeviceQueueFamilyProperties = (PFN_vkGetPhysicalDeviceQueueFamilyProperties)vkGetInstanceProcAddr(instance, "vkGetPhysicalDeviceQueueFamilyProperties");
@@ -48,6 +47,7 @@ void LoadVulkanInstanceFunctions(VkInstance instance) {
 
 void LoadVulkanDeviceFunctions(VkDevice device) {
 	#ifdef VK_NO_PROTOTYPES
+	vkDestroyDevice = (PFN_vkDestroyDevice)vkGetDeviceProcAddr(device, "vkDestroyDevice");
 	#endif
 }
 

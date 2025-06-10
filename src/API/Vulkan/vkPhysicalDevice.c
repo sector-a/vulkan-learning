@@ -64,7 +64,7 @@ void GetPhysicalDevice(VkPhysicalDevice* physicalDevice)
 
         if (!hasFoundFamily) continue;
 
-        physicalDevice = &physicalDevices[i];
+        *physicalDevice = physicalDevices[i];
         break;
     }
 
