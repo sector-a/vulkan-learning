@@ -3,6 +3,6 @@
 
 #include <vulkan/vulkan.h>
 
-void GetPhysicalDevice(VkPhysicalDevice physicalDevice);
+void GetPhysicalDevice(VkPhysicalDevice* physicalDevice);
 
 #endif

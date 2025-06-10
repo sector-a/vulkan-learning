@@ -6,9 +6,9 @@
 const char* deviceExtensions[VULKAN_DEVICE_EXTENSION_COUNT] = {"VK_KHR_swapchain", 
     "VK_KHR_dynamic_rendering", "VK_KHR_depth_stencil_resolve", "VK_KHR_create_renderpass2", "VK_KHR_multiview", "VK_KHR_maintenance2"};
 
-void GetPhysicalDevice(VkPhysicalDevice physicalDevice)
+void GetPhysicalDevice(VkPhysicalDevice* physicalDevice)
 {
-    physicalDevice = VK_NULL_HANDLE;
+    *physicalDevice = VK_NULL_HANDLE;
 
     u32 physicalDeviceCount;
     vkEnumeratePhysicalDevices(vkExterns.instance, &physicalDeviceCount, VK_NULL_HANDLE);
@@ -68,11 +68,11 @@ void GetPhysicalDevice(VkPhysicalDevice physicalDevice)
 
         if (!hasFoundFamily) continue;
 
-        physicalDevice = physicalDevices[i];
+        physicalDevice = &physicalDevices[i];
         break;
     }
 
-    if (physicalDevice == VK_NULL_HANDLE)
+    if (*physicalDevice == VK_NULL_HANDLE)
     {
         printf("Couldn't find a supported physical device\n");
         exit(1);

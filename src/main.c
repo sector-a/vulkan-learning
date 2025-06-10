@@ -9,7 +9,7 @@
 #include "API/Vulkan/vkSurface.h"
 #include "API/Vulkan/vkPhysicalDevice.h"
 
-int main(int argc, char** argv) {
+int main() {
 	InitSDL(SDL_INIT_VIDEO);
 	CreateSDLWindow(WINDOW_TITLE, WINDOW_WIDTH, WINDOW_HEIGHT, SDL_WINDOW_VULKAN);
 
@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     LoadVulkanInstanceFunctions(vkExterns.instance);
 
     CreateVulkanSurface(sdlExterns.window, vkExterns.instance, &vkExterns.surface);
-    GetPhysicalDevice(vkExterns.physicalDevice);
+    GetPhysicalDevice(&vkExterns.physicalDevice);
 	
 	sdlExterns.loopActive = 1;
     while (sdlExterns.loopActive) {
