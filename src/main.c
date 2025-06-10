@@ -8,6 +8,7 @@
 #include "API/Vulkan/vkInstance.h"
 #include "API/Vulkan/vkSurface.h"
 #include "API/Vulkan/vkPhysicalDevice.h"
+#include "API/Vulkan/vkDevice.h"
 
 int main() {
 	InitSDL(SDL_INIT_VIDEO);
@@ -20,6 +21,8 @@ int main() {
 
     CreateVulkanSurface(sdlExterns.window, vkExterns.instance, &vkExterns.surface);
     GetPhysicalDevice(&vkExterns.physicalDevice);
+    CreateVulkanDevice(vkExterns.mainQueueFamilyIndex, vkExterns.physicalDevice, &vkExterns.device);
+    LoadVulkanDeviceFunctions(vkExterns.device);
 	
 	sdlExterns.loopActive = 1;
     while (sdlExterns.loopActive) {

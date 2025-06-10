@@ -1,1 +1,1 @@
-python generateVkFunctions.py vkCreateInstance:l vkDestroyInstance:i vkEnumeratePhysicalDevices:i vkEnumerateDeviceExtensionProperties:i  vkGetPhysicalDeviceQueueFamilyProperties:i vkGetPhysicalDeviceSurfaceSupportKHR:i
+python generateVkFunctions.py vkCreateInstance:l vkDestroyInstance:i vkEnumeratePhysicalDevices:i vkEnumerateDeviceExtensionProperties:i  vkGetPhysicalDeviceQueueFamilyProperties:i vkGetPhysicalDeviceSurfaceSupportKHR:i vkCreateDevice:i vkDestroyDevice:i

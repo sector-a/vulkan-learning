@@ -2,10 +2,6 @@
 #include "API/Vulkan/global.h"
 #include <string.h>
 
-#define VULKAN_DEVICE_EXTENSION_COUNT 6
-const char* deviceExtensions[VULKAN_DEVICE_EXTENSION_COUNT] = {"VK_KHR_swapchain", 
-    "VK_KHR_dynamic_rendering", "VK_KHR_depth_stencil_resolve", "VK_KHR_create_renderpass2", "VK_KHR_multiview", "VK_KHR_maintenance2"};
-
 void GetPhysicalDevice(VkPhysicalDevice* physicalDevice)
 {
     *physicalDevice = VK_NULL_HANDLE;

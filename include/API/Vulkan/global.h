@@ -7,6 +7,19 @@
         exit(1); \
     }
 
+#define VULKAN_INSTANCE_EXTENSION_COUNT 1
+extern const char* instanceExtensions[VULKAN_INSTANCE_EXTENSION_COUNT];
+
+#define VULKAN_DEVICE_EXTENSION_COUNT 6
+extern const char* deviceExtensions[VULKAN_DEVICE_EXTENSION_COUNT];
+
+#ifdef VALIDATION
+    #define vkLayerCount 1
+#else
+    #define vkLayerCount 0
+#endif
+extern const char* vkLayers[vkLayerCount];
+
 #include <vulkan/vulkan.h>
 #include "API/Vulkan/vkFunctions.h"
 #include "stdio.h"
@@ -19,6 +32,7 @@ typedef struct
     VkSurfaceKHR surface;
     VkPhysicalDevice physicalDevice;
     u32 mainQueueFamilyIndex;
+    VkDevice device;
 } VkExterns;
 
 extern VkExterns vkExterns;

@@ -27,6 +27,7 @@ set(SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkInstance.c
     ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkSurface.c
     ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkPhysicalDevice.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkDevice.c
 )
 
 find_package(SDL3 REQUIRED)
