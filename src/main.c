@@ -24,6 +24,8 @@ int main() {
     CreateVulkanDevice(vkExterns.mainQueueFamilyIndex, vkExterns.physicalDevice, &vkExterns.device);
     LoadVulkanDeviceFunctions(vkExterns.device);
 	
+    GetDeviceQueue(vkExterns.device, vkExterns.mainQueueFamilyIndex, 0, &vkExterns.queue);
+
 	sdlExterns.loopActive = 1;
     while (sdlExterns.loopActive) {
         SDL_Event event;
@@ -37,6 +39,7 @@ int main() {
         // Do game logic, present a frame, etc.
     }
 
+    DestroyVulkanDevice(vkExterns.device);
     DestroyVulkanSurface(vkExterns.instance, vkExterns.surface);
     DestroyVulkanInstance(vkExterns.instance);
 	CleanupSDL();

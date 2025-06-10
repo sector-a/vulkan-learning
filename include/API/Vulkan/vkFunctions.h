@@ -18,6 +18,7 @@ extern PFN_vkEnumeratePhysicalDevices vkEnumeratePhysicalDevices;
 extern PFN_vkDestroyInstance vkDestroyInstance;
 
 // vulkan device functions
+extern PFN_vkGetDeviceQueue vkGetDeviceQueue;
 extern PFN_vkDestroyDevice vkDestroyDevice;
 #endif
 

@@ -19,6 +19,7 @@ PFN_vkEnumeratePhysicalDevices vkEnumeratePhysicalDevices;
 PFN_vkDestroyInstance vkDestroyInstance;
 
 // vulkan device functions
+PFN_vkGetDeviceQueue vkGetDeviceQueue;
 PFN_vkDestroyDevice vkDestroyDevice;
 #endif
 
@@ -47,6 +48,7 @@ void LoadVulkanInstanceFunctions(VkInstance instance) {
 
 void LoadVulkanDeviceFunctions(VkDevice device) {
 	#ifdef VK_NO_PROTOTYPES
+	vkGetDeviceQueue = (PFN_vkGetDeviceQueue)vkGetDeviceProcAddr(device, "vkGetDeviceQueue");
 	vkDestroyDevice = (PFN_vkDestroyDevice)vkGetDeviceProcAddr(device, "vkDestroyDevice");
 	#endif
 }

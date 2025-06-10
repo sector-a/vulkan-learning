@@ -33,6 +33,7 @@ typedef struct
     VkPhysicalDevice physicalDevice;
     u32 mainQueueFamilyIndex;
     VkDevice device;
+    VkQueue queue;
 } VkExterns;
 
 extern VkExterns vkExterns;

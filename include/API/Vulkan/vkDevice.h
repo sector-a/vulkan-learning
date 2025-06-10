@@ -6,4 +6,8 @@
 
 void CreateVulkanDevice(u32 queueFamilyIndex, VkPhysicalDevice physicalDevice, VkDevice* device);
 
+void GetDeviceQueue(VkDevice device, u32 queueFamilyIndex, u32 queueCount, VkQueue* queue);
+
+void DestroyVulkanDevice(VkDevice device);
+
 #endif
