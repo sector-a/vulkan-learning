@@ -9,6 +9,7 @@
 #include "API/Vulkan/vkSurface.h"
 #include "API/Vulkan/vkPhysicalDevice.h"
 #include "API/Vulkan/vkDevice.h"
+#include "API/Vulkan/vkCmd.h"
 
 int main() {
 	InitSDL(SDL_INIT_VIDEO);
@@ -25,6 +26,8 @@ int main() {
     LoadVulkanDeviceFunctions(vkExterns.device);
 	
     GetDeviceQueue(vkExterns.device, vkExterns.mainQueueFamilyIndex, 0, &vkExterns.queue);
+    CreateCmdPool(vkExterns.mainQueueFamilyIndex, vkExterns.device, &vkExterns.renderingCmdPool);
+    AllocateCmdBuffer(vkExterns.device, vkExterns.renderingCmdPool, &vkExterns.renderingCmdBuffer);
 
 	sdlExterns.loopActive = 1;
     while (sdlExterns.loopActive) {
@@ -39,6 +42,7 @@ int main() {
         // Do game logic, present a frame, etc.
     }
 
+    DestroyCmdPool(vkExterns.device, vkExterns.renderingCmdPool);
     DestroyVulkanDevice(vkExterns.device);
     DestroyVulkanSurface(vkExterns.instance, vkExterns.surface);
     DestroyVulkanInstance(vkExterns.instance);

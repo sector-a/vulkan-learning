@@ -34,6 +34,8 @@ typedef struct
     u32 mainQueueFamilyIndex;
     VkDevice device;
     VkQueue queue;
+    VkCommandPool renderingCmdPool;
+    VkCommandBuffer renderingCmdBuffer;
 } VkExterns;
 
 extern VkExterns vkExterns;
