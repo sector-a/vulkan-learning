@@ -16,14 +16,10 @@ void CreateVulkanDevice(u32 queueFamilyIndex, VkPhysicalDevice physicalDevice, V
     dynamicRenderingFeatures.pNext = VK_NULL_HANDLE;
     dynamicRenderingFeatures.dynamicRendering = VK_TRUE;
 
-    VkPhysicalDeviceFeatures2KHR deviceFeatures = {};
-    deviceFeatures.sType = VK_STRUCTURE_TYPE_PHYSICAL_DEVICE_FEATURES_2_KHR;
-    deviceFeatures.pNext = &dynamicRenderingFeatures;
-
     const VkDeviceQueueCreateInfo queueCreateInfos[1] = {queueCreateInfo};
     VkDeviceCreateInfo createInfo = {};
     createInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
-    createInfo.pNext = &deviceFeatures;
+    createInfo.pNext = &dynamicRenderingFeatures;
     createInfo.queueCreateInfoCount = 1;
     createInfo.pQueueCreateInfos = queueCreateInfos;
     createInfo.enabledLayerCount = vkLayerCount;
