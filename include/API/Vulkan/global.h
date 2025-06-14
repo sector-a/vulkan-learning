@@ -24,7 +24,7 @@ extern const char* vkLayers[vkLayerCount];
 #include "API/Vulkan/vkFunctions.h"
 #include "stdio.h"
 #include "stdlib.h"
-#include "numtypes.h"
+#include "Utils/numtypes.h"
 
 typedef struct
 {
@@ -36,6 +36,10 @@ typedef struct
     VkQueue queue;
     VkCommandPool renderingCmdPool;
     VkCommandBuffer renderingCmdBuffer;
+    VkSurfaceFormatKHR surfaceFormat;
+    VkSurfaceCapabilitiesKHR surfaceCapabilities;
+    VkSwapchainKHR swapChain;
+    VkExtent2D swapChainExtent;
 } VkExterns;
 
 extern VkExterns vkExterns;

@@ -2,7 +2,7 @@
 #define VK_DEVICE_H
 
 #include <Vulkan/vulkan.h>
-#include <numtypes.h>
+#include "Utils/numtypes.h"
 
 void CreateVulkanDevice(u32 queueFamilyIndex, VkPhysicalDevice physicalDevice, VkDevice* device);
 

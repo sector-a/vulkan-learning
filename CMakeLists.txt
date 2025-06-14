@@ -20,6 +20,7 @@ endif()
 
 set(SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/src/main.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/Utils/mathUtils.c
     ${CMAKE_CURRENT_LIST_DIR}/src/API/SDL3/global.c
     ${CMAKE_CURRENT_LIST_DIR}/src/API/SDL3/SDLFunctions.c
     ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/global.c
@@ -29,6 +30,7 @@ set(SOURCES
     ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkPhysicalDevice.c
     ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkDevice.c
     ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkCmd.c
+    ${CMAKE_CURRENT_LIST_DIR}/src/API/Vulkan/vkSwapChain.c
 )
 
 find_package(SDL3 REQUIRED)

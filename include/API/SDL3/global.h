@@ -6,7 +6,7 @@
 #define WINDOW_HEIGHT 720
 
 #include <SDL3/SDL.h>
-#include "numtypes.h"
+#include "Utils/numtypes.h"
 
 typedef struct
 {

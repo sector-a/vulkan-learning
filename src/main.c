@@ -10,6 +10,7 @@
 #include "API/Vulkan/vkPhysicalDevice.h"
 #include "API/Vulkan/vkDevice.h"
 #include "API/Vulkan/vkCmd.h"
+#include "API/Vulkan/vkSwapChain.h"
 
 int main() {
 	InitSDL(SDL_INIT_VIDEO);
@@ -22,12 +23,16 @@ int main() {
 
     CreateVulkanSurface(sdlExterns.window, vkExterns.instance, &vkExterns.surface);
     GetPhysicalDevice(&vkExterns.physicalDevice);
+    GetSurfaceFormat(vkExterns.physicalDevice, vkExterns.surface, &vkExterns.surfaceFormat);
+    GetSurfaceCapabilities(vkExterns.physicalDevice, vkExterns.surface, &vkExterns.surfaceCapabilities);
     CreateVulkanDevice(vkExterns.mainQueueFamilyIndex, vkExterns.physicalDevice, &vkExterns.device);
     LoadVulkanDeviceFunctions(vkExterns.device);
 	
     GetDeviceQueue(vkExterns.device, vkExterns.mainQueueFamilyIndex, 0, &vkExterns.queue);
     CreateCmdPool(vkExterns.mainQueueFamilyIndex, vkExterns.device, &vkExterns.renderingCmdPool);
     AllocateCmdBuffer(vkExterns.device, vkExterns.renderingCmdPool, &vkExterns.renderingCmdBuffer);
+    CreateVulkanSwapChain(vkExterns.device, vkExterns.surface, vkExterns.surfaceFormat, vkExterns.surfaceCapabilities, vkExterns.swapChainExtent, vkExterns.mainQueueFamilyIndex,
+        &vkExterns.swapChain);
 
 	sdlExterns.loopActive = 1;
     while (sdlExterns.loopActive) {

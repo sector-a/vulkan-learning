@@ -2,7 +2,7 @@
 #define VK_CMD_H
 
 #include <Vulkan/vulkan.h>
-#include "numtypes.h"
+#include "Utils/numtypes.h"
 
 void CreateCmdPool(u32 queueFamilyIndex, VkDevice device, VkCommandPool* cmdPool);
 
