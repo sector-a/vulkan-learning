@@ -59,3 +59,8 @@ void CreateVulkanSwapChain(VkDevice device, VkSurfaceKHR surface, VkSurfaceForma
 
     VK_ASSERT(vkCreateSwapchainKHR(device, &createInfo, VK_NULL_HANDLE, swapChain), "Couldn't create Vulkan SwapChain!\n");
 }
+
+void DestroyVulkanSwapChain(VkDevice device, VkSwapchainKHR swapChain)
+{
+    vkDestroySwapchainKHR(device, swapChain, VK_NULL_HANDLE);
+}

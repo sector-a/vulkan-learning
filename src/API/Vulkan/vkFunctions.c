@@ -21,6 +21,7 @@ PFN_vkEnumeratePhysicalDevices vkEnumeratePhysicalDevices;
 PFN_vkDestroyInstance vkDestroyInstance;
 
 // vulkan device functions
+PFN_vkDestroySwapchainKHR vkDestroySwapchainKHR;
 PFN_vkCreateSwapchainKHR vkCreateSwapchainKHR;
 PFN_vkAllocateCommandBuffers vkAllocateCommandBuffers;
 PFN_vkDestroyCommandPool vkDestroyCommandPool;
@@ -56,6 +57,7 @@ void LoadVulkanInstanceFunctions(VkInstance instance) {
 
 void LoadVulkanDeviceFunctions(VkDevice device) {
 	#ifdef VK_NO_PROTOTYPES
+	vkDestroySwapchainKHR = (PFN_vkDestroySwapchainKHR)vkGetDeviceProcAddr(device, "vkDestroySwapchainKHR");
 	vkCreateSwapchainKHR = (PFN_vkCreateSwapchainKHR)vkGetDeviceProcAddr(device, "vkCreateSwapchainKHR");
 	vkAllocateCommandBuffers = (PFN_vkAllocateCommandBuffers)vkGetDeviceProcAddr(device, "vkAllocateCommandBuffers");
 	vkDestroyCommandPool = (PFN_vkDestroyCommandPool)vkGetDeviceProcAddr(device, "vkDestroyCommandPool");

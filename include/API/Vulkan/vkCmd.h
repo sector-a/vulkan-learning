@@ -4,9 +4,9 @@
 #include <Vulkan/vulkan.h>
 #include "Utils/numtypes.h"
 
-void CreateCmdPool(u32 queueFamilyIndex, VkDevice device, VkCommandPool* cmdPool);
+void CreateVulkanCmdPool(u32 queueFamilyIndex, VkDevice device, VkCommandPool* cmdPool);
 
-void DestroyCmdPool(VkDevice device, VkCommandPool cmdPool);
+void DestroyVulkanCmdPool(VkDevice device, VkCommandPool cmdPool);
 
 void AllocateCmdBuffer(VkDevice device, VkCommandPool cmdPool, VkCommandBuffer* cmdBuffers);
 

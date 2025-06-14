@@ -1,7 +1,7 @@
 #include "API/Vulkan/vkCmd.h"
 #include "API/Vulkan/global.h"
 
-void CreateCmdPool(u32 queueFamilyIndex, VkDevice device, VkCommandPool* cmdPool)
+void CreateVulkanCmdPool(u32 queueFamilyIndex, VkDevice device, VkCommandPool* cmdPool)
 {
     VkCommandPoolCreateInfo createInfo = {};
     createInfo.sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO;
@@ -12,7 +12,7 @@ void CreateCmdPool(u32 queueFamilyIndex, VkDevice device, VkCommandPool* cmdPool
     VK_ASSERT(vkCreateCommandPool(device, &createInfo, VK_NULL_HANDLE, cmdPool), "Couldn't create Command Pool!\n");
 }
 
-void DestroyCmdPool(VkDevice device, VkCommandPool cmdPool)
+void DestroyVulkanCmdPool(VkDevice device, VkCommandPool cmdPool)
 {
     vkDestroyCommandPool(device, cmdPool, VK_NULL_HANDLE);
 }

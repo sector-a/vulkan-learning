@@ -81,7 +81,7 @@ void GetSurfaceFormat(VkPhysicalDevice physicalDevice, VkSurfaceKHR surface, VkS
     VK_ASSERT(vkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, &surfaceFormatCount, VK_NULL_HANDLE), "Couldn't get Surface Format Count!\n");
 
     VkSurfaceFormatKHR surfaceFormats[surfaceFormatCount];
-    VK_ASSERT(vkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, &surfaceFormatCount, VK_NULL_HANDLE), "Couldn't get Surface Formats!\n");
+    VK_ASSERT(vkGetPhysicalDeviceSurfaceFormatsKHR(physicalDevice, surface, &surfaceFormatCount, surfaceFormats), "Couldn't get Surface Formats!\n");
 
     *surfaceFormat = surfaceFormats[0];
 }

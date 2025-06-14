@@ -29,7 +29,7 @@ int main() {
     LoadVulkanDeviceFunctions(vkExterns.device);
 	
     GetDeviceQueue(vkExterns.device, vkExterns.mainQueueFamilyIndex, 0, &vkExterns.queue);
-    CreateCmdPool(vkExterns.mainQueueFamilyIndex, vkExterns.device, &vkExterns.renderingCmdPool);
+    CreateVulkanCmdPool(vkExterns.mainQueueFamilyIndex, vkExterns.device, &vkExterns.renderingCmdPool);
     AllocateCmdBuffer(vkExterns.device, vkExterns.renderingCmdPool, &vkExterns.renderingCmdBuffer);
     CreateVulkanSwapChain(vkExterns.device, vkExterns.surface, vkExterns.surfaceFormat, vkExterns.surfaceCapabilities, vkExterns.swapChainExtent, vkExterns.mainQueueFamilyIndex,
         &vkExterns.swapChain);
@@ -47,7 +47,8 @@ int main() {
         // Do game logic, present a frame, etc.
     }
 
-    DestroyCmdPool(vkExterns.device, vkExterns.renderingCmdPool);
+    DestroyVulkanSwapChain(vkExterns.device, vkExterns.swapChain);
+    DestroyVulkanCmdPool(vkExterns.device, vkExterns.renderingCmdPool);
     DestroyVulkanDevice(vkExterns.device);
     DestroyVulkanSurface(vkExterns.instance, vkExterns.surface);
     DestroyVulkanInstance(vkExterns.instance);

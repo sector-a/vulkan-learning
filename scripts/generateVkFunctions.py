@@ -1,7 +1,7 @@
 import sys
 
-cfile = open("vkFunctions.c", "w");
-hfile = open("vkFunctions.h", "w");
+cfile = open("../src/API/Vulkan/vkFunctions.c", "w")
+hfile = open("../include/API/Vulkan/vkFunctions.h", "w")
 
 loaderFuncs = []
 instanceFuncs = []

@@ -20,6 +20,7 @@ extern PFN_vkEnumeratePhysicalDevices vkEnumeratePhysicalDevices;
 extern PFN_vkDestroyInstance vkDestroyInstance;
 
 // vulkan device functions
+extern PFN_vkDestroySwapchainKHR vkDestroySwapchainKHR;
 extern PFN_vkCreateSwapchainKHR vkCreateSwapchainKHR;
 extern PFN_vkAllocateCommandBuffers vkAllocateCommandBuffers;
 extern PFN_vkDestroyCommandPool vkDestroyCommandPool;
